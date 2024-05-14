@@ -265,6 +265,7 @@ public class DatabaseController {
 		try (Connection con = getConnection();
 				PreparedStatement stmt = con.prepareStatement(DroneUtils.FETCH_SINGLE_PRODUCT)) {
 
+			System.out.println("we are getting id");
 			stmt.setInt(1, productId); // Set the ID parameter for the query
 			ResultSet rs = stmt.executeQuery();
 
@@ -586,6 +587,8 @@ public class DatabaseController {
             stmt.setInt(16, productId);
 
             int rowsAffected = stmt.executeUpdate();
+            
+            System.out.println("rows affected" + rowsAffected);
             return rowsAffected > 0;
         } catch (SQLException e) {
             e.printStackTrace(); // Consider a more robust logging or error handling mechanism

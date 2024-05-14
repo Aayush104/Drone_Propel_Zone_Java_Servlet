@@ -85,7 +85,6 @@ nav ul li a:hover::after {
   }
 }
 
-
 .buttons button::before {
   content: "";
   position: absolute;

@@ -24,29 +24,30 @@
 %>
 <body>
     <!-- Navbar -->
-    <nav>
+   <nav>
         <div class="logo">
             <img src="<%=request.getContextPath()%>/images/logo.png" alt="Logo">
         </div>
         <div class="nav-items">
             <ul>
-                 <li><a href="<%=request.getContextPath()%>/HomeServlet">Home</a></li>
+                <li><a href="<%=request.getContextPath()%>/HomeServlet">Home</a></li>
                 <li><a href="<%=request.getContextPath()%>/OrderServlet">Orders</a></li>
                 <li><a href="<%=request.getContextPath()%>/pages/contact.jsp">Contact</a></li>
             </ul>
         </div>
         <div class="shortcuts">
-            <a href="${pageContext.request.contextPath}/pages/profile.jsp"><i
-                class="fa-solid fa-user"></i></a> <a
-                href="${pageContext.request.contextPath}/CartServlet"><i
+            <a href="${pageContext.request.contextPath}/pages/profile.jsp" class="active"><i
+                class="fa-solid fa-user"></i></a>
+            <a href="${pageContext.request.contextPath}/CartServlet"><i
                 class="fa-solid fa-cart-shopping"></i></a>
+            <form action="${pageContext.request.contextPath}/UserLogout"
+                method="post">
+                <button type="submit"
+                    style="background-color: black; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">
+                    LogOut</button>
+            </form>
         </div>
-        
-        <form action="${pageContext.request.contextPath}/UserLogout" method = "post" >
-        <button type = "submit">LogOut</button>
-        </form>
     </nav>
-
     <!-- Cart items -->
     <div class="cart">
         <h1>Your Cart</h1>

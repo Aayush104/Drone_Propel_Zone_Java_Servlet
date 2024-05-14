@@ -110,7 +110,7 @@ nav ul li a:hover::after {
 	border-radius: 5px;
 }
 
-collections a collection .details p,h4{
+collections a .details p,h4{
 	padding: 10px;
 	display: flex;
 	flex-direction: column;
@@ -130,7 +130,7 @@ collections a collection .details p,h4{
 	text-decoration: none;
 }
 
-.details button {
+.collection button {
 	background-color: black;
 	color: #fff;
 	border: none;

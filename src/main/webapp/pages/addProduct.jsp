@@ -24,7 +24,7 @@
         </div>
         <div class="nav-items">
             <ul>
-                <li><a href="${pageContext.request.contextPath}/pages/dashboard.jsp">Dashboard</a></li>
+                <li><a href="${pageContext.request.contextPath}/DisplayMessageServlet">Dashboard</a></li>
                 <li><a href="${pageContext.request.contextPath}/pages/addProduct.jsp">Add Product</a></li>
                 <li><a href="${pageContext.request.contextPath}/AdminProductsServlet">View Products</a></li>
                 <li><a href="${pageContext.request.contextPath}/AdminOrderServlet">View Orders</a></li>

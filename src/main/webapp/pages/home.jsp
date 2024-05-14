@@ -18,6 +18,43 @@
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="<%=request.getContextPath()%>/stylesheet/home.css">
+    <style>
+       
+        .details h4, .details p {
+            color: black; /* Ensures text is black */
+            text-decoration: none; /* Removes any text decoration */
+            font-size: 16px; /* Sets a standard font size for all text */
+        }
+        .details h4 {
+            font-weight: bold; /* Adds boldness to the product name */
+        }
+        .message-container, .search-container, .collections {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        a, a:hover {
+            text-decoration: none; /* Removes text decoration from links */
+            color: black; /* Ensures link text is black */
+        }
+        .cart-btn {
+            background-color: black;
+            color: white;
+            padding: 5px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            outline: none;
+            border:none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+    </style>
 </head>
 
 <body>

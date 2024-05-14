@@ -127,7 +127,7 @@ public class DatabaseController {
 					String getEmail = resultSet.getString("email"); // datbase ko email leko
 					String gethashedPassword = resultSet.getString("password"); // database ko password leko
 					String getRole = resultSet.getString("role");
-					int getUserId = resultSet.getInt("userId");
+//					int getUserId = resultSet.getInt("userId");
 
 					String unHashPassword = Hashing.decryptPassword(gethashedPassword, "U3CdwubLD5yQbUOG92ZnHw==");
 
@@ -265,7 +265,6 @@ public class DatabaseController {
 		try (Connection con = getConnection();
 				PreparedStatement stmt = con.prepareStatement(DroneUtils.FETCH_SINGLE_PRODUCT)) {
 
-			System.out.println("we are getting id");
 			stmt.setInt(1, productId); // Set the ID parameter for the query
 			ResultSet rs = stmt.executeQuery();
 
@@ -529,22 +528,22 @@ public class DatabaseController {
     
 
     public boolean updateUserData(UserModel user) throws SQLException, ClassNotFoundException {
-        String sql = "UPDATE users SET userName = ?, address = ?, email = ?, phoneNumber = ?, role = ?, userImage = ? WHERE userId = ?";
+        String sql = "UPDATE users SET userName = ?, address = ?, email = ?, phoneNumber = ?, role = ? WHERE userId = ?";
 
-        try (Connection conn = getConnection();
+        try (Connection conn = getConnection();  // Assuming `getConnection()` is defined elsewhere in your DatabaseController.
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            // Check each value and set it or use a default value if null
-            pstmt.setString(1, user.getUserName() );
-            pstmt.setString(2, user.getAddress() );
-            pstmt.setString(3, user.getEmail());
-            pstmt.setString(4, user.getPhoneNumber() );
-            pstmt.setString(5, user.getRole());
-            pstmt.setString(6, user.getUserImage() );
-            pstmt.setInt(7, user.getUserId()); // Ensure this is the correct user ID
+            // Set the user details in the PreparedStatement.
+            pstmt.setString(1, user.getUserName()); // Set userName
+            pstmt.setString(2, user.getAddress());  // Set address
+            pstmt.setString(3, user.getEmail());     // Set email
+            pstmt.setString(4, user.getPhoneNumber()); // Set phoneNumber
+            pstmt.setString(5, user.getRole());         // Set role
+            pstmt.setInt(6, user.getUserId());          // Set userId at the correct index
 
-            int updatedRows = pstmt.executeUpdate();
+            int updatedRows = pstmt.executeUpdate(); // Execute the update statement
             if (updatedRows > 0) {
+                System.out.println("Update Successful: " + updatedRows + " rows updated.");
                 return true;
             } else {
                 System.out.println("Query Execution Failed: No rows updated. Query: " + pstmt.toString());
@@ -555,6 +554,7 @@ public class DatabaseController {
             throw e;
         }
     }
+
 
     
     
@@ -587,8 +587,6 @@ public class DatabaseController {
             stmt.setInt(16, productId);
 
             int rowsAffected = stmt.executeUpdate();
-            
-            System.out.println("rows affected" + rowsAffected);
             return rowsAffected > 0;
         } catch (SQLException e) {
             e.printStackTrace(); // Consider a more robust logging or error handling mechanism
@@ -662,7 +660,7 @@ public class DatabaseController {
     
     
     public int insertMessage(MessageModel messageModel) throws SQLException {
-      
+        
         String query = "INSERT INTO messages (userId, name, email, subject, message) VALUES (?, ?, ?, ?, ?)";
 
         try (Connection connection = getConnection();
@@ -706,8 +704,4 @@ public class DatabaseController {
         }
         return messages;
     }
-
-
-    
-  
 }

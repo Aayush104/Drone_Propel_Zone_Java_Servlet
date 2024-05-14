@@ -16,7 +16,9 @@
     ProductModel product = (ProductModel) request.getAttribute("product");
 %>
 
-
+ <div>
+        <p>Debug: Product ID = <%=product.getProductImage()%></p>
+    </div>
 
     <div class="product-form-container">
         <h1>Edit Product</h1>

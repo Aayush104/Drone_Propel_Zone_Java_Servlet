@@ -62,7 +62,7 @@ public class AdminProductsServlet extends HttpServlet {
             req.setAttribute("products", products);
 
             // Forward the request to the manageProducts.jsp page
-            req.getRequestDispatcher("/pages/dashboard.jsp").forward(req, resp);
+            req.getRequestDispatcher("/pages/manageProducts.jsp").forward(req, resp);
            
         
         } catch (Exception e) {

@@ -1,4 +1,4 @@
-
+// Source code is decompiled from a .class file using FernFlower decompiler.
 package Controller.Filters;
 
 import java.io.IOException;
@@ -25,15 +25,10 @@ public class AuthenticationFilter implements Filter {
       HttpServletRequest req = (HttpServletRequest)request;
       HttpServletResponse res = (HttpServletResponse)response;
       String uri = req.getRequestURI();
-      
-      if(uri.endsWith("landing.jsp")) {
-    	  chain.doFilter(request, response);
-      }
-      
       if (uri.endsWith(".css")) {
          chain.doFilter(request, response);
       } else if (!uri.endsWith("login.jsp") && !uri.endsWith("landing.jsp") && !uri.endsWith("signup.jsp")) {
-         if (!uri.endsWith("RegisterServlet") && !uri.endsWith("CartServlet") && !uri.endsWith("OrderServlet") && !uri.endsWith("searchResults.jsp")&&   !uri.endsWith("AddProductServlet")&& !uri.endsWith("home.jsp") && !uri.endsWith("FetchProductServlet") && !uri.contains("SingleProductServlet") && !uri.endsWith("landing.jsp") && !uri.endsWith("/") && !uri.endsWith("CheckCookieServlet")) {
+         if (!uri.endsWith("RegisterServlet") && !uri.endsWith("CartServlet") && !uri.endsWith("OrderServlet") && !uri.endsWith("searchResults.jsp")&&   !uri.endsWith("AddProductServlet")&&  !uri.endsWith("FetchProductServlet") && !uri.contains("SingleProductServlet") && !uri.endsWith("landing.jsp") && !uri.endsWith("/") && !uri.endsWith("CheckCookieServlet")) {
             if (!uri.endsWith(".png") && !uri.endsWith(".jpeg") && !uri.endsWith(".mp4") && !uri.endsWith(".jpg")) {
                boolean isLogin = uri.endsWith("login.jsp");
                boolean isHome = uri.endsWith("/");

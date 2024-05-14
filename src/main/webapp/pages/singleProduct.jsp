@@ -29,25 +29,25 @@ if (session.getAttribute("admin_mail") != null && session.getAttribute("user_mai
 
 		<div class="nav-items">
 			<ul>
-				<li><a href="<%=request.getContextPath()%>/Homeservlet">Home</a></li>
-				<li><a href="<%=request.getContextPath()%>/OrderServlet">Orders</a></li>
-				<li><a href="<%=request.getContextPath()%>/pages/contact.jsp">Contact</a></li>
+				 <li><a href="<%=request.getContextPath()%>/HomeServlet" class="active">Home</a></li>
+                <li><a href="<%=request.getContextPath()%>/OrderServlet">Orders</a></li>
+                <li><a href="<%=request.getContextPath()%>/pages/contact.jsp">Contact</a></li>
 
 			</ul>
 		</div>
 
 
-		<div class="shortcuts">
-			<i class="fa-solid fa-user"></i> <i class="fa-solid fa-cart-shopping"></i>
-			<form action="${pageContext.request.contextPath}/UserLogout"
-				method="post">
-				<button type="submit"
-					style="background-color: black; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">
-					LogOut</button>
-			</form>
-		</div>
+	 <div class="shortcuts">
+            <a href="${pageContext.request.contextPath}/pages/profile.jsp"><i class="fa-solid fa-user"></i></a>
+            <a href="${pageContext.request.contextPath}/CartServlet"><i class="fa-solid fa-cart-shopping"></i></a>
+            <form action="${pageContext.request.contextPath}/UserLogout" method="post">
+                <button type="submit" style="background-color: black; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">
+                    LogOut
+                </button>
+            </form>
+        </div>
 
-		
+
 	</nav>
 
 

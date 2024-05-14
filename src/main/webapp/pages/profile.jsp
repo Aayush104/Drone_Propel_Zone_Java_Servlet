@@ -56,7 +56,7 @@ if (session.getAttribute("admin_mail") != null && session.getAttribute("user_mai
     <div class="profile">
         <div class="p_side">
             <img
-                src="${pageContext.request.contextPath}/resources/images/default.png">
+                src="https://static-00.iconduck.com/assets.00/profile-circle-icon-2048x2048-cqe5466q.png">
             <div class="detail">
                 <p>
                     Name:
@@ -93,18 +93,14 @@ if (session.getAttribute("admin_mail") != null && session.getAttribute("user_mai
             <h2>Edit Profile</h2>
             <form
                 action="${pageContext.request.contextPath}/UpdateProfileServlet"
-                method="post" enctype="multipart/form-data">
-                <input type="text" name="userName" placeholder="Username"
+                method="post" >
+                <input type="text" name="userName" placeholder="User Name"
                     value="<%=user.getUserName()%>"> <input type="email"
                     name="email" placeholder="email" value="<%=user.getEmail()%>">
                 <input type="text" name="address" placeholder="Address"
                     value="<%=user.getAddress()%>"> <input type="text"
                     name="phoneNumber" placeholder="Phone Number"
                     value="<%=user.getPhoneNumber()%>">
-                <div class="image-upload">
-                    <label for="image-input">Upload Image:</label> <input type="file"
-                        id="image-input" name="userImage" accept="image/*">
-                </div>
                 <button type="submit">Save Changes</button>
             </form>
         </div>

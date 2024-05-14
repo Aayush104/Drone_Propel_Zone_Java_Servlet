@@ -17,7 +17,6 @@ public class DroneUtils {
             "(productName, productDescription, productPrice, productImage, productAvailability, productBrand, batteryLife, maxRange, cameraQuality, weight, controlRange, flightTime, hasGPS, videoResolution, controllerCompatibility) " +
             "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     public static final String GET_ALL_PRODUCTS = "SELECT * FROM products";
-    public static final String GET_ALL_MESSAGE = "SELECT * FROM messages";
     public static final String GET_PROFILE_DETAILS = "SELECT * FROM users WHERE userId = ?";
     public static final String FETCH_SINGLE_PRODUCT = "SELECT * FROM products WHERE productId = ?";
     public static final String ADD_TO_CART = "INSERT INTO cart (userId, productId, quantity) VALUES (?, ?, ?)\r\n"
@@ -26,7 +25,8 @@ public class DroneUtils {
     public static final String UPDATE_CART ="UPDATE cart SET quantity = ? WHERE userId = ? AND productId = ?";
     public static final String DELETE_SINGLE_CART = "DELETE FROM cart WHERE userId = ? AND productId = ?";
     public static final String DELETE_WHOLE_CART = "DELETE FROM cart WHERE userId = ? ";
-    
+    public static final String GET_ALL_MESSAGE = "SELECT * FROM messages";
+
     
     // Parameters Name from input
     public static final String USER_NAME = "userName";
@@ -61,7 +61,7 @@ public class DroneUtils {
     public static final String ERROR_MESSAGE = "User Registration Failed";
     
 
-    public static final String IMAGE_DIR = "C:\\Users\\acer\\git\\repository2\\Drone_Project\\src\\main\\webapp\\resources\\images";
+    public static final String IMAGE_DIR = "C:\\Users\\anir2\\eclipse-workspace\\PropelZone\\src\\main\\webapp\\resources\\images";
  
     
     //For Login

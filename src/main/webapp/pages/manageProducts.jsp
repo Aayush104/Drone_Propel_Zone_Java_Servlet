@@ -18,6 +18,25 @@ if (session.getAttribute("admin_mail") == null && session.getAttribute("user_mai
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/stylesheet/manageProducts.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+function confirmDelete(productId) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById('deleteForm-' + productId).submit();
+        }
+    })
+    return false;
+}
+</script>
 </head>
 <body>
 	<nav>
@@ -27,7 +46,7 @@ if (session.getAttribute("admin_mail") == null && session.getAttribute("user_mai
 		<div class="nav-items">
 			<ul>
 				<li><a
-					href="${pageContext.request.contextPath}/pages/dashboard.jsp">Dashboard</a></li>
+					href="${pageContext.request.contextPath}/DisplayMessageServlet">Dashboard</a></li>
 				<li><a
 					href="${pageContext.request.contextPath}/pages/addProduct.jsp">Add
 						Product</a></li>
@@ -73,17 +92,24 @@ if (session.getAttribute("admin_mail") == null && session.getAttribute("user_mai
 						<td><%=product.getProductDescription()%></td>
 						<td>$<%=product.getProductPrice()%></td>
 						<td>
-						
-						<form action="${pageContext.request.contextPath}/FetchProductIdServlet" method="post">
-    						<input type="hidden" name="productId" value="<%=product.getProductId()%>">
-   							<button type="submit" class="edit_btn">Edit</button>
-
-							</form> <!-- Form for deletion -->
-							<form method="post"
-								action="${pageContext.request.contextPath}/ManageProductServlet">
+							<form
+								action="${pageContext.request.contextPath}/FetchProductIdServlet"
+								method="post" style="display: inline;">
+								<input type="hidden" name="productId"
+									value="<%=product.getProductId()%>">
+								<button type="submit"
+									style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">
+									Edit</button>
+							</form>
+							<form id="deleteForm-<%=product.getProductId()%>"
+								method="post"
+								action="${pageContext.request.contextPath}/ManageProductServlet"
+								style="display: inline;">
 								<input type="hidden" name="deleteId"
 									value="<%=product.getProductId()%>">
-								<button type="submit">Delete</button>
+								<button type="button" onclick="return confirmDelete('<%=product.getProductId()%>')"
+									style="background-color: #f44336; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">
+									Delete</button>
 							</form>
 						</td>
 					</tr>
@@ -101,8 +127,6 @@ if (session.getAttribute("admin_mail") == null && session.getAttribute("user_mai
 			</table>
 		</div>
 	</div>
-
-
 
 	<footer>
 		<div class="footer-left">

@@ -34,9 +34,9 @@ public class LoginServlet extends HttpServlet {
       if (responsed == 7) {
          userSession = request.getSession();
          userSession.setAttribute("admin_mail", email);
-         userSession.setMaxInactiveInterval(1800);
+         userSession.setMaxInactiveInterval(864000);
          userCookie = new Cookie("admin_mail", email);
-         userCookie.setMaxAge(1800);
+         userCookie.setMaxAge(864000);
          response.addCookie(userCookie);
          user = null;
 
@@ -57,9 +57,9 @@ public class LoginServlet extends HttpServlet {
       } else if (responsed == 1) {
          userSession = request.getSession();
          userSession.setAttribute("user_mail", email);
-         userSession.setMaxInactiveInterval(1800);
+         userSession.setMaxInactiveInterval(864000);
          userCookie = new Cookie("user_mail", email);
-         userCookie.setMaxAge(1800);
+         userCookie.setMaxAge(864000);
          response.addCookie(userCookie);
          user = null;
 
@@ -69,7 +69,7 @@ public class LoginServlet extends HttpServlet {
             var10.printStackTrace();
          }
 
-         System.out.println(user);
+        
          if (user != null) {
             HttpSession session = request.getSession();
             session.setAttribute("profileDetails", user);

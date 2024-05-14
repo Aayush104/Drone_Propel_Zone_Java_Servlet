@@ -35,17 +35,7 @@ public class UserModel {
         // Default constructor
     }
 
-    public UserModel(int userId, String userName, String email, String address, String phoneNumber, String role,
-			Part imagePart) {
-		// TODO Auto-generated constructor stub
-    	 this.userId = userId;
-         this.userName = userName;
-         this.email = email;
-         this.address = address;
-         this.phoneNumber = phoneNumber;
-         this.role = role;
-         this.userImage = imagePart.getSubmittedFileName();
-	}
+ 
 
 	
 

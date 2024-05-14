@@ -49,7 +49,7 @@ public class ManageProductServlet extends HttpServlet {
 			throws ServletException, IOException {
 		try {
 			dbController.deleteProduct(productId);
-			  request.getRequestDispatcher("/pages/dashboard.jsp").forward(request, response);
+			  request.getRequestDispatcher("/DisplayMessageServlet").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 			response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error deleting product");
